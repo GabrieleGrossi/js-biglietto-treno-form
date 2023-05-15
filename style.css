@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1{
+    padding-top: 50px;
+    color: #001632 ;
+}
+img{
+    height: 150px;
+}
+
+main p{
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 50px 0;
+}
+.flex{
+    display: flex;
+}
+.button{
+    background-color: black;
+    color: white;
+    margin-top: 2rem;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px 10px;
+}
+.risposta{
+    margin-top: 100px;
+    color: red;
+    font-size: 50px;
+}
