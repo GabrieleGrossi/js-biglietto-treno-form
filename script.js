@@ -1,29 +1,26 @@
-const userKm = parseInt(document.getElementById('userKm'));
-console.log(id='userKm');
+const button = document.querySelector('button')
+const answer = document.querySelector ('h2')
 
-const userAge = parseInt(document.getElementById('userAge'));
-console.log(id='userAge');
+button.addEventListener('click',
+    function(){
+        const userKm = parseInt(document.getElementById ('userKm').value)
+        const userAge = parseInt(document.getElementById ('userAge').value)
 
-const ticketPrice = 0.233;
+        const ticketBase = 0.233
+        const priceTicket = userKm * ticketBase
+        const priceUnder = (1- 0.194) * priceTicket
+        const priceOver = (1-0.377) * priceTicket
 
-const totalPrice = userKm * ticketPrice
-console.log(totalPrice);
 
-let discountPrice;
-
-const button = document.querySelector('button.button');
-
-button.addEventListener('click', function() {
-    if (userAge < 18){
-        discountPrice = totalPrice - (totalPrice * 0.194);
-        console.log('Essendo ancora minorenne, hai diritto ad uno sconto del 19,4% usl prezzo del biglietto')
-        console.log(discountPrice)
-        document.getElementById("discount").innerHTML = discountPrice.toFixed(2);
-    } else if (userAge > 65){
-        discountPrice = totalPrice - (totalPrice * 0.377);
-        console.log('Essendo over 65, hai diritto ad uno sconto del 37,7% sul prezzo del biglietto')
-        console.log(discountPrice)
-        document.getElementById("discount").innerHTML = discountPrice.toFixed(2)
+    if (userAge <= 17) {
+        console.log(" Ciao, ho visto che hai meno di 18 anni e devi percorrere " + userKm + " km, il tuo biglietto costa " + priceUnder.toFixed(2) + "€. E' stato applicato al prezzo totale uno sconto del 19.4%")
+         answer.innerHTML = " Ciao, ho visto che hai meno di 18 anni e devi percorrere " + userKm + " km, il tuo biglietto costa " + priceUnder.toFixed(2) + "€. E' stato applicato al prezzo totale uno sconto del 19.4%"                
+    } else if (userAge >=65) {
+        console.log(" Ciao, ho visto che hai più di 65 anni e devi percorrere " + userKm + "km, il tuo biglietto costa " + priceOver.toFixed(2) + "€. E' stato applicato al prezzo totale uno sconto del 37.7%")
+        answer.innerHTML = " Ciao, ho visto che hai più di 65 anni e devi percorrere " + userKm + "km, il tuo biglietto costa " + priceOver.toFixed(2) + "€. E' stato applicato al prezzo totale uno sconto del 37.7%" 
+    } else {
+        console.log(" Ciao, ho visto che hai" + userAge + "anni e devi percorrere " + userKm + "km. Il prezzo del biglietto è di " + priceTicket.toFixed(2) + "€. Non è stato possibile applicare sconti per l'età.")
+        answer.innerHTML = " Ciao, ho visto che hai" + userAge + "anni e devi percorrere " + userKm + "km. Il prezzo del biglietto è di " + priceTicket.toFixed(2) + "€. Non è stato possibile applicare sconti per l'età."
     }
-})
-
+    }
+)
